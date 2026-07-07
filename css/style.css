@@ -1,0 +1,120 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, rgb(178, 230, 241), #ffffff69);
+    padding: 1rem 2rem;
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+    color: white;
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Style du bouton burger */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+}
+
+
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+.nav-links {
+position: absolute;
+    top: 100%;
+    
+    /* Centrage parfait sans calcul complexe */
+    left: 0;
+    right: 0;
+    margin: 15px auto; /* Gère le centrage */
+    width: 90%;     /* Occupe 90% de la largeur disponible */
+    
+    border-radius: 55px;
+    /* Assure-toi que le gradient contient bien une valeur alpha */
+    background: linear-gradient(180deg, rgb(178, 230, 241), rgb(193, 218, 255));
+    
+padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 999;
+    
+    /* Le flou */
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+    
+    /* Optionnel : une légère bordure pour bien voir l'arrondi */
+border-top: 1px solid #0b638694; /* Définit l'épaisseur */
+    border-left: 1px solid rgb(43, 74, 141);
+
+    
+    
+}
+
+.nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+    .burger-menu {
+        z-index: 1000;
+    }
+}
+
+/* Transformation Burger -> Croix */
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Rotation des barres quand la classe 'active' est sur le burger */
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.logo img {
+    height: 40px; /* Ajuste la taille selon tes besoins */
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-family: sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
