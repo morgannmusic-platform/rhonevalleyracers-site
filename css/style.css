@@ -1,3 +1,28 @@
+.html-body-reset,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Empêche tout débordement horizontal inattendu */
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -44,44 +69,47 @@
         display: flex;
     }
 
-.nav-links {
-position: absolute;
-    top: 100%;
-    
-    /* Centrage parfait sans calcul complexe */
-    left: 0;
-    right: 0;
-    margin: 15px auto; /* Gère le centrage */
-    width: 90%;     /* Occupe 90% de la largeur disponible */
-    
-    border-radius: 55px;
-    /* Assure-toi que le gradient contient bien une valeur alpha */
-    background: linear-gradient(180deg, rgb(178, 230, 241), rgb(193, 218, 255));
-    
-padding: 1rem;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    z-index: 999;
-    
-    /* Le flou */
-    -webkit-backdrop-filter: blur(60px);
-    backdrop-filter: blur(60px);
-    
-    /* Optionnel : une légère bordure pour bien voir l'arrondi */
-border-top: 1px solid #0b638694; /* Définit l'épaisseur */
-    border-left: 1px solid rgb(43, 74, 141);
+    .nav-links {
+        position: absolute;
+        top: 100%;
 
-    
-    
-}
+        /* Centrage parfait sans calcul complexe */
+        left: 0;
+        right: 0;
+        margin: 15px auto;
+        /* Gère le centrage */
+        width: 90%;
+        /* Occupe 90% de la largeur disponible */
 
-.nav-links.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
+        border-radius: 55px;
+        /* Assure-toi que le gradient contient bien une valeur alpha */
+        background: linear-gradient(180deg, rgb(178, 230, 241), rgb(193, 218, 255));
+
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 999;
+
+        /* Le flou */
+        -webkit-backdrop-filter: blur(60px);
+        backdrop-filter: blur(60px);
+
+        /* Optionnel : une légère bordure pour bien voir l'arrondi */
+        border-top: 1px solid #0b638694;
+        /* Définit l'épaisseur */
+        border-left: 1px solid rgb(43, 74, 141);
+
+
+
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
 
     .burger-menu {
         z-index: 1000;
@@ -111,7 +139,8 @@ border-top: 1px solid #0b638694; /* Définit l'épaisseur */
 }
 
 .logo img {
-    height: 40px; /* Ajuste la taille selon tes besoins */
+    height: 40px;
+    /* Ajuste la taille selon tes besoins */
 }
 
 .navbar ul li a {
