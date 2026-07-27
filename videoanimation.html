@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhone Valley Racers - Morgann Music Games</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <style>
+        body { margin: 0; height: 300vh; background: #000; overflow: hidden; }
+
+        /* Écran de chargement */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; display: flex; align-items: center; justify-content: center;
+            color: white; z-index: 999; font-family: sans-serif;
+        }
+
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+        canvas { width: 100%; height: 100%; object-fit: cover; }
+
+        #button-container {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 10;
+        }
+        .btn { padding: 20px 40px; background: #ff4500; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="loader">Chargement des ressources...</div>
+
+<div id="canvas-container">
+    <canvas id="rvr-canvas"></canvas>
+</div>
+
+<div id="button-container">
+    <a href="/nouveautes" class="btn">Accéder aux Nouveautés</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+    const canvas = document.getElementById("rvr-canvas");
+    const ctx = canvas.getContext("2d");
+    const loader = document.getElementById("loader");
+    const btn = document.getElementById("button-container");
+    
+    // Création d'un élément vidéo invisible
+    const video = document.createElement("video");
+    video.src = "1920x1080.mp4"; // Assurez-vous que le chemin est correct
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = "auto";
+
+    // Chargement et Initialisation
+    video.onloadedmetadata = () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        
+        // Cacher le loader
+        loader.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Dessiner la première frame immédiatement
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        initScroll();
+    };
+
+    function initScroll() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation liée au scroll
+        gsap.to(video, {
+            currentTime: video.duration,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 0, // Latence zéro pour synchro parfaite
+                onUpdate: () => {
+                    // Rendu sur le canvas
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    
+                    // Gestion du bouton
+                    if (video.currentTime >= 5.46 && video.currentTime <= 7.60) {
+                        btn.style.opacity = "1";
+                        btn.style.pointerEvents = "auto";
+                    } else {
+                        btn.style.opacity = "0";
+                        btn.style.pointerEvents = "none";
+                    }
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhone Valley Racers - Morgann Music Games</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon rvr.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="rgb(178, 230, 241)">
+    <meta property="og:title" content="Rhône Valley Racers">
+    <meta property="og:description"
+        content="En développement :  Découvrez Rhône Valley Racers, une reconstitution interactive de la vallée du Rhône, développée par Morgann Dev CP. Explorez Vienne, Condrieu, Ampuis et plus encore dans une expérience immersive unique.">
+    <meta property="og:image" content="https://rhone-valley-racers.uk/ban.png">
+    <meta property="og:url" content="https://rhone-valley-racers.uk">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-top: 90px;
+            background: linear-gradient(180deg, #3dbada, #30daf1);
+            font-family: 'Roboto', sans-serif;
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 20px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            font-size: 30pt;
+        }
+
+
+        h2 {
+            text-align: left;
+            margin: 30px 50px;
+            color: rgb(0, 0, 0);
+            font-weight: 400;
+            font-size: 20pt;
+        }
+
+        .ville ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 80px;
+        }
+
+        @media (max-width: 610px) {
+            .ville ul {
+                margin: 20px 20px;
+            }
+        }
+
+        .ville li {
+            margin: 10px 0;
+            padding: 20px;
+            background: linear-gradient(180deg, #55d1e7, #248297);
+            border-radius: 55px;
+            border-top: 1px solid rgb(255, 255, 255);
+            border-left: 1px solid rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-family: sans-serif;
+            transition: all 0.4s ease;
+        }
+
+        .ville li:hover {
+            transform: scale(1.02);
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.473);
+        }
+
+        h3 {
+            display: inline-block;
+            /* Ajoute cette ligne */
+            margin-left: 20px;
+            margin-bottom: -10px;
+            font-size: 21pt;
+            padding: 10px;
+            background: linear-gradient(180deg, #55d1e7, #248297);
+            border-radius: 55px;
+            border-top: 1px solid rgb(255, 255, 255);
+            border-left: 1px solid rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
+            transition: all 0.4s ease;
+        }
+
+        h3:hover {
+            transform: scale(1.01);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.473);
+        }
+
+        h4 {
+            font-size: 17pt;
+            align-items: left;
+            margin-left: 40px;
+        }
+
+        .footer {
+            background: linear-gradient(180deg, #ffffff81, #3dbada);
+            color: #000000;
+            padding: 40px 20px;
+            margin-top: 50px;
+
+            text-align: center;
+            border-radius: 35px 35px 0 0;
+
+        }
+
+        /* Structure de base (Bureau) */
+        .footer-content {
+            display: flex;
+            /* Utilisation de Flexbox au lieu de table */
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+
+        }
+
+        .footer-column {
+            flex: 1;
+            /* Les colonnes prennent de la place proportionnellement */
+            min-width: 250px;
+            /* Taille minimale avant de passer à la ligne */
+            padding: 20px;
+        }
+
+        /* Adaptation pour petit écran (Mobile) */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                /* Empile les colonnes verticalement */
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .footer-column {
+                min-width: 100%;
+                /* Occupe toute la largeur */
+                padding: 10px 0;
+            }
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #177989;
+            margin-bottom: 15px;
+        }
+
+        .footer h4 {
+            margin-bottom: 20px;
+            color: #177989;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #1b1b1b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #1f1f1f;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .separateur {
+            width: 80%;
+            height: 10px;
+            margin: 40px auto;
+            background: linear-gradient(180deg, #3a91a0, #16525f);
+            border-radius: 55px;
+            border-top: 1px solid rgba(255, 255, 255, 0.671);
+            border-left: 1px solid rgba(255, 255, 255, 0.61);
+            color: rgb(0, 0, 0);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="pouette">
+
+        <img src="logo.svg" alt="Logo Rhône Valley Racers" style="display: block; margin: 20px auto; width: 400px;">
+        <h1 style="margin-top: 20px;">En développement.</h1>
+
+
+        <h1>Présenté par Morgann Rachedi & Elia Bravos Germond</h1>
+
+        <h2>Une reconstitution fidèle et interactive d'un secteur stratégique de la vallée du Rhône, incluant :</h2>
+        <div class="ville">
+            <ul>
+                <li>Vienne</li>
+                <li>Condrieu</li>
+                <li>Ampuis</li>
+                <li>La-Chappelle-Vilard</li>
+                <li>Sainte-Colombe</li>
+                <li>Saint-Romain-en-Gal</li>
+                <li>Tupin-et-Semons</li>
+                <li>Saint-Cyr-sur-le-Rhône</li>
+                <li>Massif du Pilat</li>
+
+            </ul>
+        </div>
+        <h3>Réalisme Urbain </h3>
+        <h4>Reconstitution précise des axes routiers et des façades emblématiques pour une immersion totale dans
+            l'identité
+            rhodanienne.</h4>
+
+        <h3>Structure éditrice (studio)</h3>
+        <div class="logo" style="align-items: left; margin-left: 40px;">
+            <img src="mdcp.png" alt="Logo Rhône Valley Racers"
+                style="display: block; width:70px; height:70px; margin-top:20px; margin-bottom:-20px;">
+        </div>
+        <h4 style="margin-top: 10px;">Morgann Dev CP</h4>
+
+        <div class="separateur"></div>
+
+        <h1 style="margin-top: 20px;">Spécifications Techniques & Optimisations</h1>
+
+        <h3>Moteurs & Workflow</h3>
+        <h4>Développement sous Unity avec une modélisation architecturale préalable sous Blender.</h4>
+
+        <h3>Approche Modulaire</h3>
+        <h4>Découpage de la zone en 143 dalles de 2 km par 2 km pour garantir une fluidité totale et une gestion
+            optimisée
+            de la mémoire vive (RAM)</h4>
+        <h3>Identité Visuelle</h3>
+        <h4>Standard de qualité graphique élevé ("Liquid Glass") assurant une interface utilisateur épurée et moderne
+        </h4>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Colonne 1: Logo et description -->
+            <div class="footer-column">
+                <div class="footer-logo">Rhône Valley Racers</div>
+                <p>Aucune date de sortie prévue.</p>
+            </div>
+
+
+
+            <!-- Colonne 3: Contact -->
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a></p>
+                <div class="social-links">
+                    <a href="https://github.com/morgannmusic-platform">GitHub</a> | <a
+                        href="https://games.morgannmusic.uk">Morgann Music Games</a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px; font-size: 12px; color: #161616;">
+            &copy; 2026 Morgann Dev CP. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+</body>
+
+</html>
