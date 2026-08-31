@@ -84,7 +84,7 @@ img {
 
         border-radius: 55px;
         /* Assure-toi que le gradient contient bien une valeur alpha */
-        background: linear-gradient(180deg, rgb(178, 230, 241), rgb(193, 218, 255));
+        background: linear-gradient(180deg, #3dbada, #9ceeff);
 
         padding: 1rem;
         opacity: 0;

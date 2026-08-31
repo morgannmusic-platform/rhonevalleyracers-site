@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devlog - Rhône Valley Racers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon rvr.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="rgb(178, 230, 241)">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-top: 90px;
+            background: linear-gradient(180deg, #3dbada, #30daf1);
+            font-family: 'Roboto', sans-serif;
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 20px 10px 20px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            font-size: 30pt;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #16525f;
+        }
+
+        .devlog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .devlog-card {
+            background: linear-gradient(180deg, #55d1e7, #248297);
+            border-radius: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .devlog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 8px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .devlog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .devlog-title {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #000;
+            margin: 0;
+        }
+
+        .devlog-date {
+            background: #177989;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11pt;
+            font-weight: bold;
+        }
+
+        .devlog-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .devlog-content {
+            font-size: 13pt;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #051a1e;
+        }
+
+        .devlog-content ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .devlog-content li {
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            background: linear-gradient(180deg, #ffffff81, #3dbada);
+            color: #000000;
+            padding: 40px 20px;
+            margin-top: 50px;
+            text-align: center;
+            border-radius: 35px 35px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-column {
+                min-width: 100%;
+                padding: 10px 0;
+            }
+
+            .devlog-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #177989;
+            margin-bottom: 15px;
+        }
+
+        .footer h4 {
+            margin-bottom: 20px;
+            color: #177989;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: #1b1b1b;
+            text-decoration: none;
+        }
+
+        /* Images gallery for devlog entries */
+        .devlog-images {
+            margin: 18px 0 6px 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .devlog-thumb {
+            width: 220px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+        }
+
+        .more-count {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 220px;
+            height: 130px;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18pt;
+            cursor: pointer;
+        }
+
+        /* Modal */
+        .devlog-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+        }
+
+        .devlog-modal.open {
+            display: flex;
+        }
+
+        .devlog-modal .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            position: relative;
+        }
+
+        .devlog-modal img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.85);
+            border: none;
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-prev {
+            left: -60px;
+        }
+
+        .modal-next {
+            right: -60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div class="pouette">
+
+        <h1>Devlog & Coulisses du Projet</h1>
+        <div class="subtitle">Suivez l'avancée du développement de Rhône Valley Racers</div>
+
+        <div class="devlog-container">
+
+            <!-- ENTREE 3 -->
+            <article class="devlog-card">
+                <div class="devlog-header">
+                    <h2 class="devlog-title">#003 - Pose des bases du script</h2>
+                    <span class="devlog-date">30 Août 2026</span>
+                </div>
+                <div class="devlog-images" data-entry="003"></div>
+                <span class="devlog-tag">Structure</span>
+                <div class="devlog-content">
+                    <p>
+                        Des grosses bases sont posées pour le script du jeu. Les personnages principaux sont imaginés,
+                        les premières missions commence à être ecrites.
+                    </p>
+                    <ul>
+                        <li>Conception des personnages principaux.</li>
+                        <li>Écriture des premières missions.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- ENTREE 2 -->
+            <article class="devlog-card">
+                <div class="devlog-header">
+                    <h2 class="devlog-title">#002 - Commencement du développement - Initialisation Unity</h2>
+                    <span class="devlog-date">26 Juillet 2026</span>
+                </div>
+                <div class="devlog-images" data-entry="002"></div>
+                <span class="devlog-tag">Développement & Composition</span>
+                <div class="devlog-content">
+                    <p>
+                        Le développement du jeu a officiellement commencé ! La première étape a été l'initialisation
+                        du
+                        projet dans Unity, la configuration des paramètres de base et la mise en place de
+                        l'environnement
+                        de travail. Une cinématique d'introduction en motion design a été réalisée pour le demarrage
+                        du
+                        jeu, ainsi que la composition de la première musique d'ambiance pour le menu principal. La
+                        création du format de fichier audio (.mmac, .mmlac) a été effectuée pour garantir un
+                        contrôle
+                        précis sur la qualité sonore et la possibilité de personnaliser le son selon les besoins du
+                        jeu,
+                        la possibilité de boucler le son pour les menus ou missions. Un mixage Dolby Atmos a été
+                        réalisé
+                        pour offrir une expérience sonore immersive aux joueurs.
+                    </p>
+                    <ul>
+                        <li>Initialisation du projet dans Unity.</li>
+                        <li>Création de la cinématique d'introduction en motion design.</li>
+
+                        <li>Composition de la première musique d'ambiance pour le menu principal.</li>
+                        <li>Création du format de fichier audio (.mmac, .mmlac) pour garder un contrôle précis sur
+                            la
+                            qualité sonore.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- ENTREE 1 -->
+            <article class="devlog-card">
+                <div class="devlog-header">
+                    <h2 class="devlog-title">#001 - Premières idées & recherches</h2>
+                    <span class="devlog-date">20 Juin 2026</span>
+                </div>
+                <div class="devlog-images" data-entry="001"></div>
+                <span class="devlog-tag">Structuration</span>
+                <div class="devlog-content">
+                    <p>
+                        C'est officiel, le projet commence ! Les premières idées sont posées sur le papier et les
+                        recherches commencent pour définir le style graphique, le style sonore, la cartographie.
+                    </p>
+                    <ul>
+                        <li>Élaboration du concept global et de la vision du jeu.</li>
+                        <li>Recherche de direction artistique et stylistique.</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">Rhône Valley Racers</div>
+                <p>Journal de bord de développement.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a></p>
+                <div style="margin-top: 15px;">
+                    <a href="index.html">Retour à l'accueil</a> |
+                    <a href="https://github.com/morgannmusic-platform">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px; font-size: 12px; color: #161616;">
+            &copy; 2026 Morgann Dev CP. Tous droits réservés.
+        </div>
+
+    </footer>
+
+
+    <script src="js/devlog-images.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+
+</html>

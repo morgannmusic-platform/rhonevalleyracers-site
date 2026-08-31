@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhone Valley Racers - Morgann Music Games</title>
+    <title>Rhone Valley Racers</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/icon rvr.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -13,7 +13,7 @@
     <meta name="theme-color" content="rgb(178, 230, 241)">
     <meta property="og:title" content="Rhône Valley Racers">
     <meta property="og:description"
-        content="En développement :  Découvrez Rhône Valley Racers, une reconstitution interactive de la vallée du Rhône, développée par Morgann Dev CP. Explorez Vienne, Condrieu, Ampuis et plus encore dans une expérience immersive unique.">
+        content="En développement : Découvrez Rhône Valley Racers, une expérience numérique hybride alliant simulation de course automobile et enquête narrative en monde ouvert par Morgann Dev CP. Explorez la vallée du Rhône dans une expérience immersive unique.">
     <meta property="og:image" content="https://rhone-valley-racers.uk/ban.png">
     <meta property="og:url" content="https://rhone-valley-racers.uk">
     <meta property="og:type" content="website">
@@ -31,7 +31,6 @@
             font-family: 'Roboto', sans-serif;
             color: rgb(0, 0, 0);
             font-weight: 600;
-
         }
 
         h1 {
@@ -41,7 +40,6 @@
             font-weight: bold;
             font-size: 30pt;
         }
-
 
         h2 {
             text-align: left;
@@ -55,6 +53,9 @@
             list-style-type: none;
             padding: 0;
             margin: 20px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
         }
 
         @media (max-width: 610px) {
@@ -64,8 +65,8 @@
         }
 
         .ville li {
-            margin: 10px 0;
-            padding: 20px;
+            margin: 0;
+            padding: 15px 20px;
             background: linear-gradient(180deg, #55d1e7, #248297);
             border-radius: 55px;
             border-top: 1px solid rgb(255, 255, 255);
@@ -73,9 +74,9 @@
             color: rgb(0, 0, 0);
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
             font-weight: bold;
-            transition: color 0.3s ease;
-            font-family: sans-serif;
             transition: all 0.4s ease;
+            font-family: sans-serif;
+            text-align: center;
         }
 
         .ville li:hover {
@@ -85,11 +86,10 @@
 
         h3 {
             display: inline-block;
-            /* Ajoute cette ligne */
             margin-left: 20px;
             margin-bottom: -10px;
             font-size: 21pt;
-            padding: 10px;
+            padding: 10px 20px;
             background: linear-gradient(180deg, #55d1e7, #248297);
             border-radius: 55px;
             border-top: 1px solid rgb(255, 255, 255);
@@ -108,6 +108,8 @@
             font-size: 17pt;
             align-items: left;
             margin-left: 40px;
+            margin-right: 40px;
+            font-weight: normal;
         }
 
         .footer {
@@ -115,43 +117,33 @@
             color: #000000;
             padding: 40px 20px;
             margin-top: 50px;
-
             text-align: center;
             border-radius: 35px 35px 0 0;
-
         }
 
-        /* Structure de base (Bureau) */
         .footer-content {
             display: flex;
-            /* Utilisation de Flexbox au lieu de table */
             justify-content: space-between;
             flex-wrap: wrap;
             max-width: 1000px;
             margin: auto;
-
         }
 
         .footer-column {
             flex: 1;
-            /* Les colonnes prennent de la place proportionnellement */
             min-width: 250px;
-            /* Taille minimale avant de passer à la ligne */
             padding: 20px;
         }
 
-        /* Adaptation pour petit écran (Mobile) */
         @media (max-width: 768px) {
             .footer-content {
                 flex-direction: column;
-                /* Empile les colonnes verticalement */
                 text-align: center;
                 margin: 0 auto;
             }
 
             .footer-column {
                 min-width: 100%;
-                /* Occupe toute la largeur */
                 padding: 10px 0;
             }
         }
@@ -165,9 +157,11 @@
 
         .footer h4 {
             margin-bottom: 20px;
+            margin-left: 0;
             color: #177989;
             text-transform: uppercase;
             font-size: 16px;
+            font-weight: bold;
         }
 
         .footer ul {
@@ -216,39 +210,88 @@
     <div id="navbar-container"></div>
 
     <div class="pouette">
-
         <img src="logo.svg" alt="Logo Rhône Valley Racers" style="display: block; margin: 20px auto; width: 400px;">
         <h1 style="margin-top: 20px;">En développement.</h1>
 
-
         <h1>Présenté par Morgann Rachedi & Elia Bravos Germond</h1>
 
-        <h2>Une reconstitution fidèle et interactive d'un secteur stratégique de la vallée du Rhône, incluant :</h2>
+        <h2>Une expérience numérique hybride alliant simulation de course automobile et enquête narrative en monde
+            ouvert. Le joueur incarne le duo Thomas et Sonia, à travers une reconstitution fidèle et
+            interactive d'un secteur stratégique de la vallée du Rhône :</h2>
+
         <div class="ville">
             <ul>
-                <li>Vienne</li>
-                <li>Condrieu</li>
                 <li>Ampuis</li>
-                <li>La-Chappelle-Vilard</li>
-                <li>Sainte-Colombe</li>
-                <li>Saint-Romain-en-Gal</li>
-                <li>Tupin-et-Semons</li>
+                <li>Assieu</li>
+                <li>Chasse-sur-Rhône</li>
+                <li>Cheyssieu</li>
+                <li>Chonas-l'Amballan</li>
+                <li>Chuzelles</li>
+                <li>Clonas-sur-Varèze</li>
+                <li>Condrieu</li>
+                <li>Échalas</li>
+                <li>Estrablin</li>
+                <li>Eyzin-Pinet</li>
+                <li>Givors</li>
+                <li>Haies</li>
+                <li>Jardin</li>
+                <li>Les Côtes-d'Arey</li>
+                <li>Loire-sur-Rhône</li>
+                <li>Longes</li>
+                <li>Luzinay</li>
+                <li>Meyssiès</li>
+                <li>Moidieu-Détourbe</li>
+                <li>Pont-Évêque</li>
+                <li>Reventin-Vaugris</li>
                 <li>Saint-Cyr-sur-le-Rhône</li>
-                <li>Massif du Pilat</li>
-
+                <li>Saint-Romain-en-Gal</li>
+                <li>Saint-Romain-en-Gier</li>
+                <li>Saint-Sorlin-de-Vienne</li>
+                <li>Sainte-Colombe</li>
+                <li>Septème</li>
+                <li>Serpaize</li>
+                <li>Seyssuel</li>
+                <li>Trèves</li>
+                <li>Tupin-et-Semons</li>
+                <li>Vérin</li>
+                <li>Vienne</li>
+                <li>Villette-de-Vienne</li>
             </ul>
         </div>
-        <h3>Réalisme Urbain </h3>
-        <h4>Reconstitution précise des axes routiers et des façades emblématiques pour une immersion totale dans
-            l'identité
-            rhodanienne.</h4>
+
+        <h3>Concept & Gameplay</h3>
+        <h4>
+            • <b>Navigation Automobile :</b> Épreuves de précision et de pilotage sur les réseaux routiers secondaires
+            et les routes de moyenne montagne du Pilat.<br>
+            • <b>Navigation en Mobilité Douce (ViaRhôna) :</b> Exploration à vélo sur la ViaRhôna pour une découverte à
+            rythme lent et la résolution d'énigmes.<br>
+            • <b>Système d'Enquête :</b> Recherche d'objets clés et interactions avec le décor pour progresser.
+        </h4>
+
+        <h3>Objectifs de Valorisation Territoriale</h3>
+        <h4>
+            • <b>Promotion du Patrimoine :</b> Mise en avant des atouts touristiques (vignobles de la Côte-Rôtie,
+            ViaRhôna).<br>
+            • <b>Réalisme Urbain :</b> Reconstitution précise des axes routiers et des façades emblématiques[cite:
+            1].<br>
+            • <b>Médiation Culturelle :</b> Quête territoriale incitant à l'exploration et à la découverte de l'histoire
+            locale.
+        </h4>
+
+        <h3>Partenariats & Ancrage Économique</h3>
+        <h4>
+            • <b>Réalisme des Enseignes :</b> Intégration des commerces de proximité partenaires (ex: Relais Des
+            Granges, Domaine Niero, Go Repair, L'ÉPI-CENTRE).<br>
+            • <b>Sécurité Juridique :</b> Package Partenaire avec autorisation légale explicite et respect du droit à
+            l'image.
+        </h4>
 
         <h3>Structure éditrice (studio)</h3>
         <div class="logo" style="align-items: left; margin-left: 40px;">
-            <img src="mdcp.png" alt="Logo Rhône Valley Racers"
+            <img src="mdcp.png" alt="Logo Morgann Dev CP"
                 style="display: block; width:70px; height:70px; margin-top:20px; margin-bottom:-20px;">
         </div>
-        <h4 style="margin-top: 10px;">Morgann Dev CP</h4>
+        <h4 style="margin-top: 10px;">Morgann Dev CP (Morgann Music Platforms)</h4>
 
         <div class="separateur"></div>
 
@@ -258,30 +301,39 @@
         <h4>Développement sous Unity avec une modélisation architecturale préalable sous Blender.</h4>
 
         <h3>Approche Modulaire</h3>
-        <h4>Découpage de la zone en 143 dalles de 2 km par 2 km pour garantir une fluidité totale et une gestion
-            optimisée
-            de la mémoire vive (RAM)</h4>
-        <h3>Identité Visuelle</h3>
-        <h4>Standard de qualité graphique élevé ("Liquid Glass") assurant une interface utilisateur épurée et moderne
+        <h4>Découpage de la zone en dalles d'environ 2 km par 2 km pour garantir une fluidité totale et une gestion
+            optimisée de la mémoire vive (RAM). Une "Vertical Slice" sert de zone test fonctionnelle.
         </h4>
+
+        <h3>Identité Visuelle & Shaders</h3>
+        <h4>Standard graphique élevé ("Liquid Glass") assurant une interface épurée et moderne, complété par
+            des shaders personnalisés (gestion et mouvement dynamique de l'herbe).</h4>
+
+        <h3>Bande-Son Originale (B.S.O.)</h3>
+        <h4>Création intégrale par Morgann Rachedi & Elia Bravos Germond (Morgann Music & Elia), protégée par
+            Copyright et distribuée sur toutes les plateformes de streaming (Spotify, Apple Music,
+            Deezer...).</h4>
+
+        <h3>Canaux de Distribution</h3>
+        <h4>Déploiement prévu sur PC (Steam avec Wishlist, Epic Games Store, Itch.io, Game Jolt) et Consoles
+            (PlayStation Store, Xbox Game).</h4>
     </div>
+
     <footer class="footer">
         <div class="footer-content">
-            <!-- Colonne 1: Logo et description -->
             <div class="footer-column">
                 <div class="footer-logo">Rhône Valley Racers</div>
                 <p>Aucune date de sortie prévue.</p>
+                <p>Devlog & Journal de bord bientôt accessible sur le site.</p>
             </div>
 
-
-
-            <!-- Colonne 3: Contact -->
             <div class="footer-column">
                 <h4>Contact</h4>
-                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a></p>
+                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a>
+                </p>
                 <div class="social-links">
-                    <a href="https://github.com/morgannmusic-platform">GitHub</a> | <a
-                        href="https://games.morgannmusic.uk">Morgann Music Games</a>
+                    <a href="https://github.com/morgannmusic-platform">GitHub</a> |
+                    <a href="https://games.morgannmusic.uk">Morgann Music Games</a>
                 </div>
             </div>
         </div>
