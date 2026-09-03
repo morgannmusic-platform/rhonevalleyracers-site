@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="rgb(178, 230, 241)">
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -21,110 +22,168 @@
         }
 
         body {
-            padding-top: 90px;
-            background: linear-gradient(180deg, #3dbada, #30daf1);
+            padding-top: 25px;
+            background: linear-gradient(180deg, #a1ecff, #cff9ff);
             font-family: 'Roboto', sans-serif;
-            color: rgb(0, 0, 0);
+            color: #111;
             font-weight: 600;
         }
 
-        h1 {
+        /* Hero / Title */
+        .devlog-hero {
+            max-width: 900px;
+            margin: 20px auto 35px;
+            padding: 30px 20px;
             text-align: center;
-            margin: 40px 20px 10px 20px;
-            color: rgb(0, 0, 0);
-            font-weight: bold;
-            font-size: 30pt;
         }
 
-        .subtitle {
-            text-align: center;
-            font-size: 16pt;
-            font-weight: 400;
-            margin-bottom: 40px;
-            color: #16525f;
+        .devlog-hero h1 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: #0f4c5c;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
         }
 
+        .devlog-hero .subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #248297;
+            margin: 0;
+        }
+
+        /* Devlog Timeline Container */
         .devlog-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Liquid Glass Devlog Card */
         .devlog-card {
-            background: linear-gradient(180deg, #55d1e7, #248297);
-            border-radius: 35px;
-            border-top: 1px solid rgba(255, 255, 255, 0.8);
-            border-left: 1px solid rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
         }
 
         .devlog-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 4px 8px 18px rgba(0, 0, 0, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.09);
         }
 
+        /* Header Card */
         .devlog-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding-bottom: 12px;
             margin-bottom: 15px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .devlog-title {
-            font-size: 20pt;
-            font-weight: bold;
-            color: #000;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0f4c5c;
             margin: 0;
         }
 
         .devlog-date {
-            background: #177989;
+            background: linear-gradient(180deg, #267586, #17505d);
             color: #fff;
             padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 11pt;
-            font-weight: bold;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(23, 80, 93, 0.25);
         }
 
         .devlog-tag {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.3);
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 10pt;
-            font-weight: bold;
+            background: rgba(36, 130, 151, 0.12);
+            color: #0f4c5c;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
             margin-bottom: 15px;
+            border: 1px solid rgba(36, 130, 151, 0.2);
         }
 
+        /* Content */
         .devlog-content {
-            font-size: 13pt;
+            font-size: 1.02rem;
             font-weight: 500;
             line-height: 1.6;
-            color: #051a1e;
+            color: #222;
+        }
+
+        .devlog-content p {
+            margin: 0 0 12px 0;
         }
 
         .devlog-content ul {
-            margin-top: 10px;
+            margin: 8px 0 0 0;
             padding-left: 20px;
         }
 
         .devlog-content li {
             margin-bottom: 6px;
+            color: #333;
         }
 
+        /* Images Gallery */
+        .devlog-images {
+            margin: 15px 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .devlog-thumb {
+            width: 200px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .devlog-thumb:hover {
+            transform: scale(1.03);
+        }
+
+        .more-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 125px;
+            border-radius: 18px;
+            background: rgba(15, 76, 92, 0.8);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
         .footer {
-            background: linear-gradient(180deg, #ffffff81, #3dbada);
-            color: #000000;
+            background: linear-gradient(180deg, #9ee4ffb7, #3dbada);
+            color: #000;
             padding: 40px 20px;
-            margin-top: 50px;
+            margin-top: 60px;
             text-align: center;
             border-radius: 35px 35px 0 0;
         }
@@ -140,150 +199,73 @@
         .footer-column {
             flex: 1;
             min-width: 250px;
-            padding: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-column {
-                min-width: 100%;
-                padding: 10px 0;
-            }
-
-            .devlog-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            padding: 15px;
         }
 
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 700;
             color: #177989;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .footer h4 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #177989;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 800;
         }
 
         .footer a {
             color: #1b1b1b;
             text-decoration: none;
+            font-weight: 600;
         }
 
-        /* Images gallery for devlog entries */
-        .devlog-images {
-            margin: 18px 0 6px 0;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+        @media (max-width: 768px) {
+            .devlog-hero h1 {
+                font-size: 1.8rem;
+            }
 
-        .devlog-thumb {
-            width: 220px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-            cursor: pointer;
-        }
+            .devlog-card {
+                padding: 20px;
+            }
 
-        .more-count {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 220px;
-            height: 130px;
-            border-radius: 16px;
-            background: rgba(0, 0, 0, 0.35);
-            color: #fff;
-            font-weight: bold;
-            font-size: 18pt;
-            cursor: pointer;
-        }
+            .devlog-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
 
-        /* Modal */
-        .devlog-modal {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: 9999;
-        }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
 
-        .devlog-modal.open {
-            display: flex;
-        }
-
-        .devlog-modal .modal-content {
-            max-width: 90%;
-            max-height: 85%;
-            position: relative;
-        }
-
-        .devlog-modal img {
-            max-width: 100%;
-            max-height: 85vh;
-            border-radius: 12px;
-            display: block;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 8px;
-            padding: 6px 10px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.85);
-            border: none;
-            padding: 8px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .modal-prev {
-            left: -60px;
-        }
-
-        .modal-next {
-            right: -60px;
+            .devlog-thumb,
+            .more-count {
+                width: 100%;
+                height: 160px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div id="navbar-container"></div>
-    <div class="pouette">
 
-        <h1>Devlog & Coulisses du Projet</h1>
-        <div class="subtitle">Suivez l'avancée du développement de Rhône Valley Racers</div>
+    <main class="pouette">
+        <!-- Hero Header -->
+        <section class="devlog-hero gsap-reveal">
+            <h1>Devlog & Coulisses du Projet</h1>
+            <div class="subtitle">Suivez l'avancée du développement de Rhône Valley Racers</div>
+        </section>
 
         <div class="devlog-container">
 
             <!-- ENTREE 3 -->
-            <article class="devlog-card">
+            <article class="devlog-card gsap-reveal">
                 <div class="devlog-header">
                     <h2 class="devlog-title">#003 - Pose des bases du script</h2>
                     <span class="devlog-date">30 Août 2026</span>
@@ -293,7 +275,7 @@
                 <div class="devlog-content">
                     <p>
                         Des grosses bases sont posées pour le script du jeu. Les personnages principaux sont imaginés,
-                        les premières missions commence à être ecrites.
+                        les premières missions commencent à être écrites.
                     </p>
                     <ul>
                         <li>Conception des personnages principaux.</li>
@@ -303,7 +285,7 @@
             </article>
 
             <!-- ENTREE 2 -->
-            <article class="devlog-card">
+            <article class="devlog-card gsap-reveal">
                 <div class="devlog-header">
                     <h2 class="devlog-title">#002 - Commencement du développement - Initialisation Unity</h2>
                     <span class="devlog-date">26 Juillet 2026</span>
@@ -313,34 +295,28 @@
                 <div class="devlog-content">
                     <p>
                         Le développement du jeu a officiellement commencé ! La première étape a été l'initialisation
-                        du
-                        projet dans Unity, la configuration des paramètres de base et la mise en place de
-                        l'environnement
-                        de travail. Une cinématique d'introduction en motion design a été réalisée pour le demarrage
-                        du
-                        jeu, ainsi que la composition de la première musique d'ambiance pour le menu principal. La
+                        du projet dans Unity, la configuration des paramètres de base et la mise en place de
+                        l'environnement de travail. Une cinématique d'introduction en motion design a été réalisée pour
+                        le démarrage
+                        du jeu, ainsi que la composition de la première musique d'ambiance pour le menu principal. La
                         création du format de fichier audio (.mmac, .mmlac) a été effectuée pour garantir un
-                        contrôle
-                        précis sur la qualité sonore et la possibilité de personnaliser le son selon les besoins du
-                        jeu,
-                        la possibilité de boucler le son pour les menus ou missions. Un mixage Dolby Atmos a été
-                        réalisé
-                        pour offrir une expérience sonore immersive aux joueurs.
+                        contrôle précis sur la qualité sonore et la possibilité de personnaliser le son selon les
+                        besoins du
+                        jeu, la possibilité de boucler le son pour les menus ou missions. Un mixage Dolby Atmos a été
+                        réalisé pour offrir une expérience sonore immersive aux joueurs.
                     </p>
                     <ul>
                         <li>Initialisation du projet dans Unity.</li>
                         <li>Création de la cinématique d'introduction en motion design.</li>
-
                         <li>Composition de la première musique d'ambiance pour le menu principal.</li>
-                        <li>Création du format de fichier audio (.mmac, .mmlac) pour garder un contrôle précis sur
-                            la
+                        <li>Création du format de fichier audio (.mmac, .mmlac) pour garder un contrôle précis sur la
                             qualité sonore.</li>
                     </ul>
                 </div>
             </article>
 
             <!-- ENTREE 1 -->
-            <article class="devlog-card">
+            <article class="devlog-card gsap-reveal">
                 <div class="devlog-header">
                     <h2 class="devlog-title">#001 - Premières idées & recherches</h2>
                     <span class="devlog-date">20 Juin 2026</span>
@@ -360,7 +336,7 @@
             </article>
 
         </div>
-    </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
@@ -381,10 +357,11 @@
         <div style="margin-top: 30px; font-size: 12px; color: #161616;">
             &copy; 2026 Morgann Dev CP. Tous droits réservés.
         </div>
-
     </footer>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/gsap-init.js"></script>
+    <script src="js/error-logger.js"></script>
     <script src="js/devlog-images.js"></script>
     <script src="js/navbar.js"></script>
 </body>

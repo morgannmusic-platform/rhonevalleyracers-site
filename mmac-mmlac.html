@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhone Valley Racers - Morgann Music Games</title>
+    <title>Formats Audio (.mmac & .mmlac) - Rhône Valley Racers</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="rgb(178, 230, 241)">
-    <meta property="og:title" content="Rhône Valley Racers">
+    <meta property="og:title" content="Formats Audio .mmac & .mmlac - Rhône Valley Racers">
     <meta property="og:description"
-        content="En développement :  Découvrez Rhône Valley Racers, une reconstitution interactive de la vallée du Rhône, développée par Morgann Dev CP. Explorez Vienne, Condrieu, Ampuis et plus encore dans une expérience immersive unique.">
+        content="Découvrez les innovations sonores propriétaire de Morgann Music : les codecs audio Lossless .mmac et .mmlac conçus pour l'immersion interactive.">
     <meta property="og:image" content="https://rhone-valley-racers.uk/ban.png">
-    <meta property="og:url" content="https://rhone-valley-racers.uk">
+    <meta property="og:url" content="https://rhone-valley-racers.uk/mmac-mmlac.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -26,188 +27,168 @@
         }
 
         body {
-            padding-top: 90px;
-            background: linear-gradient(180deg, #3dbada, #30daf1);
+            padding-top: 25px;
+            background: linear-gradient(180deg, #a1ecff, #cff9ff);
             font-family: 'Roboto', sans-serif;
-            color: rgb(0, 0, 0);
+            color: #111;
             font-weight: 600;
-
         }
 
-        h1 {
+        .audio-container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .audio-hero {
+            padding: 35px 25px;
             text-align: center;
-            margin: 40px 20px;
-            color: rgb(0, 0, 0);
-            font-weight: bold;
-            font-size: 30pt;
+            margin-bottom: 35px;
         }
 
-
-        h2 {
-            text-align: left;
-            margin: 30px 50px;
-            color: rgb(0, 0, 0);
-            font-weight: 400;
-            font-size: 20pt;
+        .audio-hero img {
+            width: 220px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
         }
 
-        .ville ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 80px;
+        .audio-hero h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0f4c5c;
+            margin: 10px 0 5px;
+            line-height: 1.2;
         }
 
-        @media (max-width: 610px) {
-            .ville ul {
-                margin: 20px 20px;
-            }
+        .audio-hero p {
+            font-size: 1.1rem;
+            color: #248297;
+            margin: 0;
+            font-weight: 700;
         }
 
-        .ville li {
-            margin: 10px 0;
-            padding: 20px;
+        /* Card Section */
+        .codec-card {
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .codec-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .codec-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .codec-badge {
             background: linear-gradient(180deg, #55d1e7, #248297);
-            border-radius: 55px;
-            border-top: 1px solid rgb(255, 255, 255);
-            border-left: 1px solid rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
-            font-weight: bold;
-            transition: color 0.3s ease;
-            font-family: sans-serif;
-            transition: all 0.4s ease;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-top: 1px solid #fff;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
         }
 
-        .ville li:hover {
-            transform: scale(1.02);
-            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.473);
+        .codec-card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #0f4c5c;
+            font-weight: 800;
         }
 
-        h3 {
-            display: inline-block;
-            /* Ajoute cette ligne */
-            margin-left: 20px;
-            margin-bottom: -10px;
-            font-size: 21pt;
-            padding: 10px;
-            background: linear-gradient(180deg, #55d1e7, #248297);
-            border-radius: 55px;
-            border-top: 1px solid rgb(255, 255, 255);
-            border-left: 1px solid rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
-            transition: all 0.4s ease;
+        .codec-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #222;
+            font-weight: 500;
+            margin: 0 0 15px 0;
         }
 
-        h3:hover {
-            transform: scale(1.01);
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.473);
+        /* Box d'exemple interactif */
+        .use-case-box {
+            background: rgba(255, 255, 255, 0.5);
+            border-left: 4px solid #248297;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 0.98rem;
+            line-height: 1.5;
+            color: #16525f;
+            font-weight: 600;
         }
 
-        h4 {
-            font-size: 17pt;
-            align-items: left;
-            margin-left: 40px;
-        }
-
+        /* Footer */
         .footer {
-            background: linear-gradient(180deg, #ffffff81, #3dbada);
-            color: #000000;
+            background: linear-gradient(180deg, #9ee4ffb7, #3dbada);
+            color: #000;
             padding: 40px 20px;
-            margin-top: 50px;
-
+            margin-top: 60px;
             text-align: center;
             border-radius: 35px 35px 0 0;
-
         }
 
-        /* Structure de base (Bureau) */
         .footer-content {
             display: flex;
-            /* Utilisation de Flexbox au lieu de table */
             justify-content: space-between;
             flex-wrap: wrap;
             max-width: 1000px;
             margin: auto;
-
         }
 
         .footer-column {
             flex: 1;
-            /* Les colonnes prennent de la place proportionnellement */
             min-width: 250px;
-            /* Taille minimale avant de passer à la ligne */
-            padding: 20px;
-        }
-
-        /* Adaptation pour petit écran (Mobile) */
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                /* Empile les colonnes verticalement */
-                text-align: center;
-                margin: 0 auto;
-            }
-
-            .footer-column {
-                min-width: 100%;
-                /* Occupe toute la largeur */
-                padding: 10px 0;
-            }
+            padding: 15px;
         }
 
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 700;
             color: #177989;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .footer h4 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #177989;
             text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer ul li {
-            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 800;
         }
 
         .footer a {
             color: #1b1b1b;
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 600;
         }
 
-        .footer a:hover {
-            color: #1f1f1f;
-        }
+        @media (max-width: 768px) {
+            .audio-hero h1 {
+                font-size: 1.7rem;
+            }
 
-        .social-links {
-            margin-top: 15px;
-        }
+            .codec-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
 
-        .social-links a {
-            margin: 0 10px;
-            font-size: 20px;
-        }
+            .codec-card {
+                padding: 20px;
+            }
 
-        .separateur {
-            width: 80%;
-            height: 10px;
-            margin: 40px auto;
-            background: linear-gradient(180deg, #3a91a0, #16525f);
-            border-radius: 55px;
-            border-top: 1px solid rgba(255, 255, 255, 0.671);
-            border-left: 1px solid rgba(255, 255, 255, 0.61);
-            color: rgb(0, 0, 0);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -215,76 +196,78 @@
 <body>
     <div id="navbar-container"></div>
 
-    <div class="pouette">
+    <main class="audio-container">
+        <!-- Hero Header -->
+        <section class="audio-hero gsap-reveal">
+            <img src="logo.svg" alt="Logo Rhône Valley Racers">
+            <h1>Innovation Sonore & Formats Proprietaires</h1>
+            <p>Par Morgann Rachedi</p>
+        </section>
 
-        <img src="logo.svg" alt="Logo Rhône Valley Racers" style="display: block; margin: 20px auto; width: 400px;">
-        <h1 style="margin-top: 20px;">Morgann Music Audio Formats, petit pitch sur l'innovation sonore pour Rhône Valley
-            Racers.</h1>
+        <!-- Codec .mmac -->
+        <article class="codec-card gsap-reveal">
+            <div class="codec-header">
+                <span class="codec-badge">.mmac</span>
+                <h2>Morgann Music Audio Codec</h2>
+            </div>
+            <p>
+                Le standard audio haute définition développé pour l'écosystème <b>Morgann Music Platforms</b>.
+                Conçu pour garantir une qualité sonore irréprochable sans aucune compression destructrice (Lossless),
+                il conserve l'intégralité de la dynamique, de la clarté et du spectre fréquentiel du mix d'origine
+                studio.
+            </p>
+        </article>
 
+        <!-- Codec .mmlac -->
+        <article class="codec-card gsap-reveal">
+            <div class="codec-header">
+                <span class="codec-badge">.mmlac</span>
+                <h2>Morgann Music Looped Audio Codec</h2>
+            </div>
+            <p>
+                Spécialement taillé pour les environnements interactifs et le jeu vidéo, le format Lossless
+                <b>.mmlac</b>
+                intègre un système de bouclage dynamique et la gestion de pistes multiples synchros en temps réel.
+            </p>
+            <p>
+                Il permet de configurer des points de boucle ultra-précis (avec transition en fondu de 2 secondes) et
+                de basculer ou superposer instantanément jusqu'à <b>5 déclinaisons d'un même morceau</b> sans rupture de
+                rythme.
+            </p>
 
-        <h1>Présenté par Morgann Rachedi & Elia Bravos Germond</h1>
+            <div class="use-case-box">
+                💡 <b>Exemple d'application dans le jeu :</b> Une musique d'exploration calme en <code>.mmlac</code> qui
+                s'intensifie et ajoute des percussions instantanément dès que le joueur entre dans une épreuve de
+                course, le tout de manière fluide et synchronisée.
+            </div>
+        </article>
+    </main>
 
-        <h2>Une reconstitution fidèle et interactive d'un secteur stratégique de la vallée du Rhône, incluant :</h2>
-        <div class="ville">
-            <ul>
-                <li>.mmac</li>
-                <li>.mmlac</li>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">Rhône Valley Racers</div>
+                <p>Aucune date de sortie prévue.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a></p>
+                <div class="social-links">
+                    <a href="https://github.com/morgannmusic-platform">GitHub</a> |
+                    <a href="https://games.morgannmusic.uk">Morgann Music Games</a>
+                </div>
+            </div>
         </div>
+        <div style="margin-top: 25px; font-size: 12px; color: #161616;">
+            &copy; 2026 Morgann Dev CP. Tous droits réservés.
+        </div>
+    </footer>
 
-        <h3>Morgann Music Audio Codec (.mmac)</h3>
-        <h4>
-            Le format .mmac (Morgann Music Audio Codec) est le standard audio haute définition développé spécifiquement
-            pour l'écosystème Morgann Music Platforms. Conçu pour garantir une qualité sonore irréprochable sans aucune
-            altération ni compression destructrice, ce format fonctionne en Lossless (sans perte de données audio). Il
-            conserve l'intégralité de la dynamique, de la clarté et des fréquences du mix d'origine studio, offrant
-            ainsi une fidélité acoustique pure lors de l'écoute de la bandes-son.
-        </h4>
-
-        <h3>Morgann Music Looped Audio Codec (.mmlac)</h3>
-        <h4>
-            Le format .mmlac (Morgann Music Looped Audio Codec) va encore plus loin en intégrant un système de bouclage
-            dynamique et de gestion de pistes multiples sans aucune perte de qualité (Lossless). Spécialement taillé
-            pour les environnements interactifs et les jeux vidéo, il permet de définir des points de boucle précis
-            (avec transition en fondu enchaîné de 2 secondes) et de basculer instantanément entre plusieurs versions
-            alternatives d'un même morceau. Il offre la possibilité de superposer ou de permuter en temps réel jusqu'à 5
-            pistes ou déclinaisons (par exemple : version calme, version intense, ou arrangements d'instruments
-            différents) tout en maintenant une synchronisation parfaite et un flux continu.
-        </h4>
-        <ul>
-            <li>
-                Exemple d'utilisation : Dans un jeu de course, une piste d'exploration calme en .mmlac qui bascule de
-                façon fluide vers une version dynamique et rythmée dès que le joueur entre dans une épreuve intense ou
-                franchit une zone clé, sans interruption du rythme ni coupure sonore.</li>
-        </ul>
-
-
-
-        <footer class="footer">
-            <div class="footer-content">
-                <!-- Colonne 1: Logo et description -->
-                <div class="footer-column">
-                    <div class="footer-logo">Rhône Valley Racers</div>
-                    <p>Aucune date de sortie prévue.</p>
-                </div>
-
-
-
-                <!-- Colonne 3: Contact -->
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a></p>
-                    <div class="social-links">
-                        <a href="https://github.com/morgannmusic-platform">GitHub</a> | <a
-                            href="https://games.morgannmusic.uk">Morgann Music Games</a>
-                    </div>
-                </div>
-            </div>
-            <div style="margin-top: 30px; font-size: 12px; color: #161616;">
-                &copy; 2026 Morgann Dev CP. Tous droits réservés.
-            </div>
-        </footer>
-
-        <script src="js/navbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/gsap-init.js"></script>
+    <script src="js/error-logger.js"></script>
+    <script src="js/navbar.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhone Valley Racers</title>
+    <title>Rhône Valley Racers</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/icon rvr.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -25,95 +25,256 @@
             padding: 0;
         }
 
-        body {
-            padding-top: 90px;
-            background: linear-gradient(180deg, #3dbada, #30daf1);
-            font-family: 'Roboto', sans-serif;
-            color: rgb(0, 0, 0);
-            font-weight: 600;
-        }
-
         h1 {
             text-align: center;
             margin: 40px 20px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            font-size: 30pt;
+            font-size: 2rem;
         }
 
-        h2 {
-            text-align: left;
-            margin: 30px 50px;
-            color: rgb(0, 0, 0);
-            font-weight: 400;
-            font-size: 20pt;
+        /* Container principal moderne et responsive */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .ville ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 80px;
+        .intro-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #111;
+            text-align: center;
+            margin: 30px auto 25px;
+            padding: 20px;
+        }
+
+        /* Bouton Pop-up Villes */
+        .villes-trigger-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-villes {
+            background: linear-gradient(180deg, #33acc1, #248297);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(36, 130, 151, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-villes:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(36, 130, 151, 0.6);
+        }
+
+        /* Grille des cartes de sections */
+        .section-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
-        @media (max-width: 610px) {
-            .ville ul {
-                margin: 20px 20px;
-            }
+        .info-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 44px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
         }
 
-        .ville li {
-            margin: 0;
-            padding: 15px 20px;
+        .info-card h3 {
+            display: block;
+            margin: 0 0 15px 0;
+            font-size: 1.35rem;
+            padding: 10px 18px;
             background: linear-gradient(180deg, #55d1e7, #248297);
-            border-radius: 55px;
-            border-top: 1px solid rgb(255, 255, 255);
-            border-left: 1px solid rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
+            border-radius: 50px;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: center;
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-card li {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            color: #222;
+            font-weight: 500;
+        }
+
+        .info-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card b {
+            color: #0f4c5c;
+        }
+
+        /* Studio Card Spécifique */
+        .studio-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .studio-card img {
+            width: 65px;
+            height: 65px;
+            flex-shrink: 0;
+        }
+
+        .studio-card h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        .separateur {
+            width: 80%;
+            height: 8px;
+            margin: 40px auto;
+            background: linear-gradient(180deg, #3a91a0, #16525f);
+            border-radius: 50px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal / Popup pour les Villes */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            max-width: 650px;
+            width: 100%;
+            border-radius: 28px;
+            padding: 30px 25px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            text-align: center;
+            color: #16525f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f0f0f0;
+            border: none;
+            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            transition: all 0.4s ease;
-            font-family: sans-serif;
+            transition: background 0.2s;
+        }
+
+        .modal-content .close:hover {
+            background: #e0e0e0;
+        }
+
+        .modal-villes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .modal-villes-grid li {
+            padding: 10px 14px;
+            background: linear-gradient(180deg, #55d1e7, #248297);
+            border-radius: 20px;
+            color: #000;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-align: center;
         }
 
-        .ville li:hover {
-            transform: scale(1.02);
-            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.473);
+        /* Responsive Mobile Adjustments */
+        @media (max-width: 768px) {
+            .intro-text {
+                font-size: 1.05rem;
+                padding: 16px;
+            }
+
+            .info-card {
+                padding: 18px;
+            }
+
+            .info-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .studio-card {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .modal-villes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
         }
 
-        h3 {
-            display: inline-block;
-            margin-left: 20px;
-            margin-bottom: -10px;
-            font-size: 21pt;
-            padding: 10px 20px;
-            background: linear-gradient(180deg, #55d1e7, #248297);
-            border-radius: 55px;
-            border-top: 1px solid rgb(255, 255, 255);
-            border-left: 1px solid rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
-            transition: all 0.4s ease;
-        }
-
-        h3:hover {
-            transform: scale(1.01);
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.473);
-        }
-
-        h4 {
-            font-size: 17pt;
-            align-items: left;
-            margin-left: 40px;
-            margin-right: 40px;
-            font-weight: normal;
-        }
-
+        /* Footer Styles */
         .footer {
-            background: linear-gradient(180deg, #ffffff81, #3dbada);
+            background: linear-gradient(180deg, #9ee4ffb7, #3dbada);
             color: #000000;
             padding: 40px 20px;
             margin-top: 50px;
@@ -150,7 +311,7 @@
 
         .footer-logo {
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 600;
             color: #177989;
             margin-bottom: 15px;
         }
@@ -191,18 +352,6 @@
             margin: 0 10px;
             font-size: 20px;
         }
-
-        .separateur {
-            width: 80%;
-            height: 10px;
-            margin: 40px auto;
-            background: linear-gradient(180deg, #3a91a0, #16525f);
-            border-radius: 55px;
-            border-top: 1px solid rgba(255, 255, 255, 0.671);
-            border-left: 1px solid rgba(255, 255, 255, 0.61);
-            color: rgb(0, 0, 0);
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.445);
-        }
     </style>
 </head>
 
@@ -210,17 +359,169 @@
     <div id="navbar-container"></div>
 
     <div class="pouette">
-        <img src="logo.svg" alt="Logo Rhône Valley Racers" style="display: block; margin: 20px auto; width: 400px;">
-        <h1 style="margin-top: 20px;">En développement.</h1>
+        <!-- Badge en développement d'origine -->
+        <div style="align-items: center;">
+            <div class="notedev">
+                <h1>En developpement</h1>
+            </div>
+        </div>
 
-        <h1>Présenté par Morgann Rachedi & Elia Bravos Germond</h1>
+        <!-- Hero Banner Modernisée avec le logo du jeu -->
+        <div class="hero-container gsap-reveal">
+            <div class="hero-content">
+                <div class="hero-logo-box">
+                    <img src="logo.svg" alt="Logo Rhône Valley Racers" class="game-logo">
+                </div>
 
-        <h2>Une expérience numérique hybride alliant simulation de course automobile et enquête narrative en monde
-            ouvert. Le joueur incarne le duo Thomas et Sonia, à travers une reconstitution fidèle et
-            interactive d'un secteur stratégique de la vallée du Rhône :</h2>
+                <div class="hero-text-box">
+                    <h1 class="game-title">Rhône Valley Racers</h1>
+                    <p class="game-subtitle">Représenté par <span>Morgann Rachedi</span> & <span>Elia Bravos</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="intro-text gsap-reveal">
+                Une expérience numérique hybride alliant simulation de course automobile et enquête narrative en monde
+                ouvert. Le joueur incarne le duo Thomas et Sonia, à travers une reconstitution fidèle et interactive
+                d'un secteur stratégique de la vallée du Rhône.
+            </div>
 
-        <div class="ville">
-            <ul>
+            <div class="villes-trigger-wrapper gsap-reveal">
+                <button class="btn-villes" id="open-cities">
+                    📍 Explorer les 35 villes couvertes
+                </button>
+            </div>
+
+            <div class="section-grid">
+                <div class="info-card gsap-reveal">
+                    <h3>Concept & Gameplay</h3>
+                    <ul>
+                        <li>• <b>Navigation Automobile :</b> Épreuves de précision et de pilotage sur les réseaux
+                            routiers secondaires et les routes de moyenne montagne du Pilat.</li>
+                        <li>• <b>Navigation en Mobilité Douce (ViaRhôna) :</b> Exploration à vélo sur la ViaRhôna pour
+                            une découverte à rythme lent et la résolution d'énigmes.</li>
+                        <li>• <b>Système d'Enquête :</b> Recherche d'objets clés et interactions avec le décor pour
+                            progresser.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card gsap-reveal">
+                    <h3>Valorisation Territoriale</h3>
+                    <ul>
+                        <li>• <b>Promotion du Patrimoine :</b> Mise en avant des atouts touristiques (vignobles de la
+                            Côte-Rôtie, ViaRhôna).</li>
+                        <li>• <b>Réalisme Urbain :</b> Reconstitution précise des axes routiers et des façades
+                            emblématiques.</li>
+                        <li>• <b>Médiation Culturelle :</b> Quête territoriale incitant à l'exploration et à la
+                            découverte de l'histoire locale.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card gsap-reveal">
+                    <h3>Partenariats & Ancrage</h3>
+                    <ul>
+                        <li>• <b>Réalisme des Enseignes :</b> Intégration des commerces de proximité partenaires (ex:
+                            Relais Des Granges, Domaine Niero, Go Repair, L'ÉPI-CENTRE).</li>
+                        <li>• <b>Sécurité Juridique :</b> Package Partenaire avec autorisation légale explicite et
+                            respect du droit à l'image.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section Complète : Morgann Dev CP -->
+            <div class="studio-section gsap-reveal">
+                <div class="studio-header">
+                    <img src="mdcp.png" alt="Logo Morgann Dev CP" class="studio-logo">
+                    <div>
+                        <span class="studio-badge">Structure éditrice & Studio de développement</span>
+                        <h2>Morgann Dev CP</h2>
+                        <p class="studio-subtext">Pôle développement interactif de Morgann Music Platforms</p>
+                    </div>
+                </div>
+
+                <div class="studio-grid">
+                    <div class="studio-item">
+                        <h4>🕹️ Édition & Projets Interactifs</h4>
+                        <p>Supervision technique et direction créative de projets vidéoludiques et d'expériences
+                            numériques immersives, de la modélisation 3D à l'intégration finale.</p>
+                    </div>
+
+                    <div class="studio-item">
+                        <h4>🌐 Écosystème Web & Services</h4>
+                        <p>Conception et gestion des architectures web, applications de streaming, extensions et
+                            plateformes Cloud interconnectées sous l'entité Morgann Music CP.</p>
+                    </div>
+
+                    <div class="studio-item">
+                        <h4>🎵 Integration Multimédia</h4>
+                        <p>Fusion entre les univers sonores originaux du label et les technologies interactives pour
+                            offrir une immersion complète (B.S.O., environnements 3D, interfaces modernisées).</p>
+                    </div>
+                </div>
+
+                <div class="studio-footer-links">
+                    <a href="https://games.morgannmusic.uk" target="_blank" rel="noopener">🎮 Morgann Music Games</a>
+                    <a href="https://github.com/morgannmusic-platform" target="_blank" rel="noopener">💻 Repositories
+                        GitHub</a>
+                </div>
+            </div>
+            <div class="separateur gsap-reveal"></div>
+
+            <h1 class="gsap-reveal" style="margin-top: 20px; font-size: 1.8rem;">Spécifications Techniques &
+                Optimisations</h1>
+
+            <div class="section-grid">
+                <div class="info-card gsap-reveal">
+                    <h3>Moteurs & Workflow</h3>
+                    <ul>
+                        <li>Développement sous <b>Unity</b> avec une modélisation architecturale préalable sous
+                            <b>Blender</b>.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card gsap-reveal">
+                    <h3>Approche Modulaire</h3>
+                    <ul>
+                        <li>Découpage de la zone en dalles d'environ <b>2 km par 2 km</b> pour garantir une fluidité
+                            totale et une gestion optimisée de la RAM. Une <i>"Vertical Slice"</i> sert de zone test
+                            fonctionnelle.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card gsap-reveal">
+                    <h3>Identité Visuelle</h3>
+                    <ul>
+                        <li>Standard graphique élevé (<b>"Liquid Glass"</b>) assurant une interface épurée et moderne,
+                            complété par des shaders personnalisés (gestion et mouvement dynamique de l'herbe).</li>
+                    </ul>
+                </div>
+
+                <div class="info-card gsap-reveal">
+                    <h3>Bande-Son Originale (B.S.O.)</h3>
+                    <ul>
+                        <li>Création intégrale par <b>Morgann Rachedi & Elia Bravos Germond</b> (Morgann Music & Elia),
+                            protégée par Copyright et distribuée sur toutes les plateformes de streaming (Spotify, Apple
+                            Music, Deezer...).</li>
+                    </ul>
+                </div>
+
+                <div class="info-card gsap-reveal">
+                    <h3>Canaux de Distribution</h3>
+                    <ul>
+                        <li>Déploiement prévu sur <b>PC</b> (Steam avec Wishlist, Epic Games Store, Itch.io, Game Jolt)
+                            et <b>Consoles</b> (PlayStation Store, Xbox Game).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cities-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" id="close-cities" aria-label="Fermer">✕</button>
+            <h3>Villes du secteur</h3>
+            <ul class="modal-villes-grid">
                 <li>Ampuis</li>
                 <li>Assieu</li>
                 <li>Chasse-sur-Rhône</li>
@@ -258,65 +559,6 @@
                 <li>Villette-de-Vienne</li>
             </ul>
         </div>
-
-        <h3>Concept & Gameplay</h3>
-        <h4>
-            • <b>Navigation Automobile :</b> Épreuves de précision et de pilotage sur les réseaux routiers secondaires
-            et les routes de moyenne montagne du Pilat.<br>
-            • <b>Navigation en Mobilité Douce (ViaRhôna) :</b> Exploration à vélo sur la ViaRhôna pour une découverte à
-            rythme lent et la résolution d'énigmes.<br>
-            • <b>Système d'Enquête :</b> Recherche d'objets clés et interactions avec le décor pour progresser.
-        </h4>
-
-        <h3>Objectifs de Valorisation Territoriale</h3>
-        <h4>
-            • <b>Promotion du Patrimoine :</b> Mise en avant des atouts touristiques (vignobles de la Côte-Rôtie,
-            ViaRhôna).<br>
-            • <b>Réalisme Urbain :</b> Reconstitution précise des axes routiers et des façades emblématiques[cite:
-            1].<br>
-            • <b>Médiation Culturelle :</b> Quête territoriale incitant à l'exploration et à la découverte de l'histoire
-            locale.
-        </h4>
-
-        <h3>Partenariats & Ancrage Économique</h3>
-        <h4>
-            • <b>Réalisme des Enseignes :</b> Intégration des commerces de proximité partenaires (ex: Relais Des
-            Granges, Domaine Niero, Go Repair, L'ÉPI-CENTRE).<br>
-            • <b>Sécurité Juridique :</b> Package Partenaire avec autorisation légale explicite et respect du droit à
-            l'image.
-        </h4>
-
-        <h3>Structure éditrice (studio)</h3>
-        <div class="logo" style="align-items: left; margin-left: 40px;">
-            <img src="mdcp.png" alt="Logo Morgann Dev CP"
-                style="display: block; width:70px; height:70px; margin-top:20px; margin-bottom:-20px;">
-        </div>
-        <h4 style="margin-top: 10px;">Morgann Dev CP (Morgann Music Platforms)</h4>
-
-        <div class="separateur"></div>
-
-        <h1 style="margin-top: 20px;">Spécifications Techniques & Optimisations</h1>
-
-        <h3>Moteurs & Workflow</h3>
-        <h4>Développement sous Unity avec une modélisation architecturale préalable sous Blender.</h4>
-
-        <h3>Approche Modulaire</h3>
-        <h4>Découpage de la zone en dalles d'environ 2 km par 2 km pour garantir une fluidité totale et une gestion
-            optimisée de la mémoire vive (RAM). Une "Vertical Slice" sert de zone test fonctionnelle.
-        </h4>
-
-        <h3>Identité Visuelle & Shaders</h3>
-        <h4>Standard graphique élevé ("Liquid Glass") assurant une interface épurée et moderne, complété par
-            des shaders personnalisés (gestion et mouvement dynamique de l'herbe).</h4>
-
-        <h3>Bande-Son Originale (B.S.O.)</h3>
-        <h4>Création intégrale par Morgann Rachedi & Elia Bravos Germond (Morgann Music & Elia), protégée par
-            Copyright et distribuée sur toutes les plateformes de streaming (Spotify, Apple Music,
-            Deezer...).</h4>
-
-        <h3>Canaux de Distribution</h3>
-        <h4>Déploiement prévu sur PC (Steam avec Wishlist, Epic Games Store, Itch.io, Game Jolt) et Consoles
-            (PlayStation Store, Xbox Game).</h4>
     </div>
 
     <footer class="footer">
@@ -329,8 +571,7 @@
 
             <div class="footer-column">
                 <h4>Contact</h4>
-                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a>
-                </p>
+                <p>Email : <a href="mailto:contact@rhone-valley-racers.uk">contact@rhone-valley-racers.uk</a></p>
                 <div class="social-links">
                     <a href="https://github.com/morgannmusic-platform">GitHub</a> |
                     <a href="https://games.morgannmusic.uk">Morgann Music Games</a>
@@ -342,6 +583,55 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Gestion de la Pop-up Modal des villes
+        (function () {
+            var openBtn = document.getElementById('open-cities');
+            var modal = document.getElementById('cities-modal');
+            var closeBtn = document.getElementById('close-cities');
+
+            function openModal() {
+                modal.classList.add('show');
+                modal.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeModal() {
+                modal.classList.remove('show');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            if (openBtn) openBtn.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (modal) modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+        })();
+
+        // Animations GSAP avec ScrollTrigger
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.gsap-reveal').forEach(function (elem) {
+                gsap.fromTo(elem,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: "top 85%",
+                            toggleActions: "play none none none"
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+    <script src="js/error-logger.js"></script>
     <script src="js/navbar.js"></script>
 </body>
 

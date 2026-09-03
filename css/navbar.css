@@ -1,0 +1,139 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 0.6rem 1rem;
+    border: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    right: 0;
+    z-index: 1000;
+    margin: 0;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+
+}
+
+/* Fond en dégradé géré via un pseudo-élément pour permettre le fondu fluide */
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #8be2ff, #00000000);
+    -webkit-backdrop-filter: blur(60px);
+    backdrop-filter: blur(60px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+/* Quand on scroll : on affiche le dégradé en fondu */
+.navbar.scrolled::before {
+    opacity: 1;
+}
+
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+    gap: 20px;
+}
+
+.nav-links li a {
+    background-color: #d4fbff45;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.268);
+    border: solid 2px rgba(255, 255, 255, 0.486);
+    display: inline-block;
+}
+
+.nav-links li a:hover {
+    transform: scale(1.09);
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 15px auto;
+        width: 90%;
+        border-radius: 55px;
+        background: linear-gradient(180deg, #3dbada, #9ceeff);
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 999;
+        -webkit-backdrop-filter: blur(60px);
+        backdrop-filter: blur(60px);
+        border-top: 1px solid #0b638694;
+        border-left: 1px solid rgb(43, 74, 141);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Règle globale pour le style et TOUTES les transitions des liens */
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: sans-serif;
+    transition: all 0.35s ease;
+    /* Animer tout (couleur + transform + fond) */
+}
